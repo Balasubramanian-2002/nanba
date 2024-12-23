@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wishes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-50px) rotate(10deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(-120vh) rotate(-10deg);
+                opacity: 0;
+            }
+        }
+
+        .animate-float {
+            animation: float 6s linear infinite;
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: 0;
+            width: 50px;
+            height: 70px;
+            background: radial-gradient(circle, #ff6666, #ff0000);
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 50px;
+            background: #666;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-t from-pink-400 to-pink-100 overflow-hidden flex justify-center items-center h-screen">
+
+    <div class="flex flex-col justify-center items-center text-center space-y-4">
+        <img src="whatsapp.jpg" alt="Birthday Image" class="w-72 h-auto opacity-0 transition-opacity duration-1000 ease-in-out transform" id="birthdayImage">
+        <div class="text-white font-bold text-4xl sm:text-5xl lg:text-6xl opacity-0 transition-opacity duration-1000 ease-in-out" id="birthdayMessage">
+            <span>Happy Birthday!! 🎉<br>DHARANYA Nanbaa🥳<br>SHREE #AUNTY🤩❤️‍🩹</span>
+        </div>
+        <p class="text-white font-light italic text-2xl sm:text-3xl lg:text-4xl opacity-0 transition-opacity duration-1000 ease-in-out" id="subMessage">
+            _Wishing you both of you guyss all the happiness in the world on your special day🤟🏻_
+        </p>
+    </div>
+
+    <div class="absolute bottom-20 left-1/2 transform -translate-x-1/2">
+        <button onclick="startCelebration()" class="px-6 py-3 text-lg font-semibold bg-pink-600 text-white rounded-lg shadow-lg hover:bg-pink-700 transition-colors">Click for Surprise!</button>
+    </div>
+
+    <div class="balloon left-1/4" style="animation-duration: 5s;" id="balloon1"></div>
+    <div class="balloon left-1/3" style="animation-duration: 6s;" id="balloon2"></div>
+    <div class="balloon left-1/2" style="animation-duration: 7s;" id="balloon3"></div>
+    <div class="balloon left-2/3" style="animation-duration: 5.5s;" id="balloon4"></div>
+    <div class="balloon left-3/4" style="animation-duration: 6.5s;" id="balloon5"></div>
+
+    <script>
+        function startCelebration() {
+ 
+            document.querySelector('button').style.display = 'none';
+
+            document.getElementById('birthdayMessage').classList.remove('opacity-0');
+            document.getElementById('birthdayMessage').classList.add('opacity-100');
+
+            document.getElementById('birthdayImage').classList.remove('opacity-0');
+            document.getElementById('birthdayImage').classList.add('opacity-100');
+
+            document.getElementById('subMessage').classList.remove('opacity-0');
+            document.getElementById('subMessage').classList.add('opacity-100');
+
+
+            document.getElementById('balloon1').classList.remove('opacity-0');
+            document.getElementById('balloon1').classList.add('animate-float');
+            
+            document.getElementById('balloon2').classList.remove('opacity-0');
+            document.getElementById('balloon2').classList.add('animate-float');
+            
+            document.getElementById('balloon3').classList.remove('opacity-0');
+            document.getElementById('balloon3').classList.add('animate-float');
+            
+            document.getElementById('balloon4').classList.remove('opacity-0');
+            document.getElementById('balloon4').classList.add('animate-float');
+            
+            document.getElementById('balloon5').classList.remove('opacity-0');
+            document.getElementById('balloon5').classList.add('animate-float');
+        }
+    </script>
+
+</body>
+</html>
